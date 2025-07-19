@@ -8,7 +8,7 @@ import Rightbar from "./section/Rightbar";
 function App() {
   return (
     <Grid container>
-      <Grid size={2}>
+      <Grid size={1.5}>
         <Leftbar />
       </Grid>
       <Grid size="grow">
