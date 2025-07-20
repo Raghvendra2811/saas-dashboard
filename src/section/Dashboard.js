@@ -8,26 +8,23 @@ const Dashboard = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const page = searchParams.get("page") || "Default";
   console.log({ page });
-  switch (page) {
-    case "Default":
-      return (
-        <Grid p={3.5}>
-          <DefaultDashboard />
-        </Grid>
-      );
-    case "Orderlist":
-      return (
-        <Grid p={3.5}>
-          <OrderList />
-        </Grid>
-      );
-    default:
-      return (
-        <Grid p={3.5}>
-          <NotFoundPage />
-        </Grid>
-      );
-  }
+
+  const renderPage = () => {
+    switch (page) {
+      case "Default":
+        return <DefaultDashboard />;
+      case "Orderlist":
+        return <OrderList />;
+      default:
+        return <NotFoundPage />;
+    }
+  };
+
+  return (
+    <Grid p={3.5} sx={{ overflowY: "auto" }}>
+      {renderPage()}
+    </Grid>
+  );
 };
 
 export default Dashboard;

@@ -35,7 +35,7 @@ const Navbar = ({ handleToggleLeftBar, handleToggleRightBar }) => {
       <Grid
         px={3.5}
         py={2.5}
-        sx={{ borderBottom: "1px solid #1C1C1C1A" }}
+        sx={{ borderBottom: `1px solid ${theme.palette.disabled.main}` }}
         container
         justifyContent="space-between"
       >

@@ -1,14 +1,18 @@
 import { Grid, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import "./Leftbar.css";
+import "../App.css";
 import { sideBarConfig } from "../data";
 import NavItemComp from "../components/navItemComp";
 
 const Sidebar = () => {
-  const theme = useTheme()
+  const theme = useTheme();
 
   return (
-    <Grid px={2} py={2.5} className="sidebar" id="sidebar">
+    <Grid
+      px={2}
+      py={2.5}
+      sx={{ borderRight: `1px solid ${theme.palette.disabled.main}` }}
+    >
       <Grid container gap={1} p={0.5} alignItems="center">
         <img
           src="assets/light/ByeWind.png"
@@ -28,13 +32,19 @@ const Sidebar = () => {
           </Typography>
         </Grid>
         <Grid px={1} py={0.5} container alignItems={"center"}>
-          <span style={{ backgroundColor: theme.palette.secondary.main }} className="nav-dot"></span>
+          <span
+            style={{ backgroundColor: theme.palette.secondary.main }}
+            className="nav-dot"
+          ></span>
           <Typography variant="h2" alignItems={"center"}>
             Overview
           </Typography>
         </Grid>
         <Grid px={1} py={0.5} container alignItems={"center"}>
-          <span style={{ backgroundColor: theme.palette.secondary.main }} className="nav-dot"></span>
+          <span
+            style={{ backgroundColor: theme.palette.secondary.main }}
+            className="nav-dot"
+          ></span>
           <Typography variant="h2" alignItems={"center"}>
             Projects
           </Typography>

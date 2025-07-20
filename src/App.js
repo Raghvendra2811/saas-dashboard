@@ -11,26 +11,46 @@ function App() {
   const [showRightBar, setShowRightBar] = useState(true);
   const handleToggleLeftBar = () => setShowLeftBar((prev) => !prev);
   const handleToggleRightBar = () => setShowRightBar((prev) => !prev);
+
   return (
-    <Grid container>
-      {showLeftBar && (
-        <Grid size={1.5}>
-          <Leftbar />
-        </Grid>
-      )}
-      <Grid size="grow">
+    <Grid container sx={{ width: "100vw", height: "100vh" }}>
+      {/* Left Sidebar */}
+      <Grid
+        height="100%"
+        size={showLeftBar ? 1.5 : 0}
+        sx={{
+          transition: "all 0.3s ease-in-out",
+          overflow: "hidden",
+          transform: showLeftBar ? "translateX(0)" : "translateX(-100%)",
+        }}
+      >
+        <Leftbar />
+      </Grid>
+
+      <Grid size="grow" height="100%">
         <Grid>
-          <Navbar handleToggleRightBar={handleToggleRightBar} handleToggleLeftBar={handleToggleLeftBar} />
+          <Navbar
+            handleToggleRightBar={handleToggleRightBar}
+            handleToggleLeftBar={handleToggleLeftBar}
+          />
         </Grid>
         <Grid>
           <Dashboard />
         </Grid>
       </Grid>
-      {showRightBar && (
-        <Grid size={2}>
-          <Rightbar />
-        </Grid>
-      )}
+
+      {/* Right Sidebar */}
+      <Grid
+        height="100%"
+        size={showRightBar ? 2 : 0}
+        sx={{
+          transition: "all 0.3s ease-in-out",
+          overflow: "hidden",
+          transform: showRightBar ? "translateX(0)" : "translateX(100%)",
+        }}
+      >
+        <Rightbar />
+      </Grid>
     </Grid>
   );
 }
