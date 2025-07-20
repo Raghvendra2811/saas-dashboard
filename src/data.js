@@ -11,15 +11,15 @@ export const sideBarConfig = [
         type: "item",
         children: [],
       },
-      // {
-      //   icon: "Notebook.png",
+      {
+        icon: "Notebook.png",
 
-      //   name: "Order List",
-      //   value: "Orderlist",
-      //   id: "id-22",
-      //   type: "item",
-      //   children: [],
-      // },
+        name: "Order List",
+        value: "Orderlist",
+        id: "id-22",
+        type: "item",
+        children: [],
+      },
       {
         icon: "ShoppingBagOpen.png",
 
@@ -337,31 +337,31 @@ export const dashboardStatsConfig = [
 export const dashboardRestConfig = [
   {
     type: "bar_widget",
-    title: "",
+    title: "Projections vs Actuals",
     width: 6,
     height: "252px",
   },
   {
     type: "line_widget",
-    title: "",
+    title: "Revenue",
     width: 9,
     height: "318px",
   },
   {
     type: "map_widget",
-    title: "",
+    title: "Revenue by Location",
     width: 3,
     height: "318px",
   },
   {
     type: "table_widget",
-    title: "",
+    title: "Top Selling Products",
     width: 9,
     height: "336px",
   },
   {
     type: "donut_widget",
-    title: "",
+    title: "Total Sales",
     width: 3,
     height: "344px",
   },

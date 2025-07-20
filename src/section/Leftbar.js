@@ -11,7 +11,7 @@ const Sidebar = () => {
     <Grid
       px={2}
       py={2.5}
-      sx={{ borderRight: `1px solid ${theme.palette.disabled.main}` }}
+      sx={{ borderRight: `1px solid ${theme.palette.disabled.main}`,height:"100vh" }}
     >
       <Grid container gap={1} p={0.5} alignItems="center">
         <img

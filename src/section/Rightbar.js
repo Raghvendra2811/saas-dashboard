@@ -10,7 +10,11 @@ const Rightbar = () => {
       p={2.5}
       container
       gap={3}
-      sx={{ borderLeft: `1px solid ${theme.palette.disabled.main}` }}
+      sx={{
+        borderLeft: `1px solid ${theme.palette.disabled.main}`,
+        height: "100vh",
+        overflow: "auto",
+      }}
     >
       {rightBarConfig.map((group) => (
         <Grid container gap={1} key={group.title} flexDirection="column">

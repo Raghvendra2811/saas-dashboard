@@ -14,9 +14,7 @@ function App() {
 
   return (
     <Grid container sx={{ width: "100vw", height: "100vh" }}>
-      {/* Left Sidebar */}
       <Grid
-        height="100%"
         size={showLeftBar ? 1.5 : 0}
         sx={{
           transition: "all 0.3s ease-in-out",
@@ -27,21 +25,15 @@ function App() {
         <Leftbar />
       </Grid>
 
-      <Grid size="grow" height="100%">
-        <Grid>
-          <Navbar
-            handleToggleRightBar={handleToggleRightBar}
-            handleToggleLeftBar={handleToggleLeftBar}
-          />
-        </Grid>
-        <Grid>
-          <Dashboard />
-        </Grid>
+      <Grid size="grow">
+        <Navbar
+          handleToggleRightBar={handleToggleRightBar}
+          handleToggleLeftBar={handleToggleLeftBar}
+        />
+        <Dashboard />
       </Grid>
 
-      {/* Right Sidebar */}
       <Grid
-        height="100%"
         size={showRightBar ? 2 : 0}
         sx={{
           transition: "all 0.3s ease-in-out",

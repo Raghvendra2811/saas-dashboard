@@ -4,7 +4,7 @@ import "../App.css";
 import TableComp from "../components/table/index";
 
 function OrderList() {
-  const { mode, toggleColorMode } = useColorMode();
+  const { mode } = useColorMode();
   const theme = useTheme();
 
   const actionButtons = [

@@ -8,15 +8,15 @@ import { DonutChartWithGaps } from "./DonutChart";
 const Widget = ({ widget }) => {
   switch (widget.type) {
     case "bar_widget":
-      return <StackedBarChart />;
+      return <StackedBarChart widget={widget} />;
     case "line_widget":
-      return <RevenueChart />;
+      return <RevenueChart widget={widget} />;
     case "map_widget":
-      return <MapChart />;
+      return <MapChart widget={widget} />;
     case "table_widget":
-      return <TableWidget />;
+      return <TableWidget widget={widget} />;
     case "donut_widget":
-      return <DonutChartWithGaps />;
+      return <DonutChartWithGaps widget={widget} />;
 
     default:
       break;

@@ -18,17 +18,16 @@ const data = [
   { month: "Jun", base: 21, forecast: 5 },
 ];
 
-const StackedBarChart = () => {
+const StackedBarChart = ({widget}) => {
   return (
     <>
       <Grid mb={2}>
-        <Typography variant="h1" color="text">Revenue</Typography>
+        <Typography variant="h1" color="text">{widget.title}</Typography>
       </Grid>
       <Grid sx={{ width: "100%", height: "calc(100% - 40px)" }}>
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
             data={data}
-            margin={{ top: 10, right: 30, left: 10, bottom: 10 }}
           >
             <CartesianGrid stroke="#e5e7eb" vertical={false} />
             <XAxis
@@ -56,7 +55,7 @@ const StackedBarChart = () => {
               stackId="a"
               fill="#dbe8f1"
               radius={[8, 8, 0, 0]}
-              barSize={30}
+              barSize={10}
             />
           </BarChart>
         </ResponsiveContainer>

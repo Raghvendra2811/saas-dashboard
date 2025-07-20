@@ -1,6 +1,5 @@
 import { Grid, Typography, Box } from "@mui/material";
 import { PieChart, Pie, ResponsiveContainer, Tooltip } from "recharts";
-import { useColorMode } from "../theme/themeContext";
 const chartData = [
   { channel: "Direct", sales: 300.56, fill: "#A5F3FC" },
   { channel: "Affilliate", sales: 135.18, fill: "#A5F5BA" },
@@ -31,13 +30,12 @@ const salesData = [
   },
 ];
 
-export const DonutChartWithGaps = () => {
-  const mode = useColorMode;
+export const DonutChartWithGaps = ({widget}) => {
   return (
     <>
       <Grid mb={2}>
         <Typography variant="h1" color="text">
-          Revenue
+          {widget.title}
         </Typography>
       </Grid>
       <Grid sx={{ width: "100%", height: "calc(100% - 40px)" }}>

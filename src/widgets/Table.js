@@ -8,7 +8,6 @@ import {
   TableCell,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import { useColorMode } from "../theme/themeContext";
 
 const tableHeaders = [
   { th: "Name", key: "name" },
@@ -50,14 +49,13 @@ const productsData = [
   },
 ];
 
-const TableWidget = () => {
-  const { mode } = useColorMode();
+const TableWidget = ({widget}) => {
   const theme = useTheme();
 
   return (
     <>
       <Typography variant="h1" color="text">
-        Top Selling Products
+        {widget.title}
       </Typography>
       <Table sx={{ width: "100%" }}>
         <TableHead>

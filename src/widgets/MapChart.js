@@ -21,12 +21,12 @@ const revenueData = [
   },
 ];
 
-const MapChart = () => {
+const MapChart = ({widget}) => {
   const { mode } = useColorMode();
   return (
     <>
       <Grid mb={2}>
-        <Typography variant="h1" color="text">Revenue by Location</Typography>
+        <Typography variant="h1" color="text">{widget.title}</Typography>
       </Grid>
       <Grid sx={{ width: "100%", height: "calc(100% - 40px)",overflowY:"auto" }}>
         <Box sx={{ mb: 2 }}>
