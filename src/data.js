@@ -1,4 +1,4 @@
-export const sideBarSettings = [
+export const sideBarConfig = [
   {
     title: "Dashboards",
     navItems: [
@@ -213,4 +213,156 @@ export const navBarConfig = [
   { icon: "ClockCounterClockwise.png", type: "" },
   { icon: "Bell.png", type: "" },
   { icon: "Sidebar.png", type: "right_sibebar" },
+];
+
+export const rightBarConfig = [
+  {
+    title: "Notifications",
+    type: "default",
+    data: [
+      {
+        text: "You have bug that needs...",
+        date: "Just now",
+        icon: "BugBeetle.svg",
+      },
+      {
+        text: "New user registered",
+        date: "59 minutes ago",
+        icon: "User.svg",
+      },
+      {
+        text: "You have a bug that needs...",
+        date: "12 hours ago",
+        icon: "BugBeetle.svg",
+      },
+      {
+        text: "Andi Lane subscribed to you...",
+        date: "Today, 11:59 AM",
+        icon: "Broadcast.svg",
+      },
+    ],
+  },
+  {
+    title: "Activities",
+    type: "connecting",
+    data: [
+      {
+        text: "You have a bug that needs...",
+        date: "Just now",
+        icon: "3D05.png",
+      },
+      {
+        text: "Released a new version",
+        date: "59 minutes ago",
+        icon: "Female05.png",
+      },
+      {
+        text: "Submitted a bug",
+        date: "12 hours ago",
+        icon: "3D08.png",
+      },
+      {
+        text: "Modified A data in Page X",
+        date: "Today, 11:59 AM",
+        icon: "Male07.png",
+      },
+      {
+        text: "Deleted a page in Project X",
+        date: "Feb 2, 2023",
+        icon: "Male11.png",
+      },
+    ],
+  },
+  {
+    title: "Contacts",
+    type: "without_date",
+    data: [
+      {
+        icon: "Female15.png",
+        text: "Natali Craig",
+      },
+      {
+        icon: "Male08.png",
+        text: "Drew Cano",
+      },
+      {
+        icon: "Male06.png",
+        text: "Orlando Diggs",
+      },
+      {
+        icon: "Female08.png",
+        text: "Andi Lane",
+      },
+      {
+        icon: "Female09.png",
+        text: "Kate Morrison",
+      },
+      {
+        icon: "3D03.png",
+        text: "Koray Okumus",
+      },
+    ],
+  },
+];
+
+export const dashboardStatsConfig = [
+  {
+    cardName: "Customers",
+    price: "3,781",
+    profit: "+11.01%",
+    icon: "ArrowRise.png",
+    bgColor: "#e3f5ff",
+  },
+
+  {
+    cardName: "Orders",
+    price: "1,219",
+    profit: "-0.03%",
+    icon: "ArrowFall.png",
+  },
+  {
+    cardName: "Revenue",
+    price: "$695",
+    profit: "+15.03%",
+    icon: "ArrowRise.png",
+  },
+  {
+    cardName: "Growth",
+    price: "3,781",
+    profit: "+11.01%",
+    icon: "ArrowRise.png",
+    bgColor: "#e5ecf6",
+  },
+];
+export const dashboardRestConfig = [
+  {
+    type: "bar_widget",
+    title: "",
+    width: 6,
+    height: "252px",
+  },
+  {
+    type: "line_widget",
+    title: "",
+    width: 9,
+    height: "318px",
+  },
+  {
+    type: "map_widget",
+    title: "",
+    width: 3,
+    height: "318px",
+  },
+  {
+    type: "table_widget",
+    title: "",
+    width: 9,
+    height: "336px",
+  },
+  {
+    type: "donut_widget",
+    title: "",
+    width: 3,
+    height: "344px",
+  },
 ];

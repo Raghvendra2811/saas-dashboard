@@ -13,17 +13,18 @@ export const getTheme = (mode) =>
             },
             primary: {
               main: "#1976d2",
+              variant1: "#F7F9FB",
             },
             secondary: {
               main: "#1C1C1C66",
               variant1: "#1C1C1C",
-              variant2:"#1C1C1C0D"
+              variant2: "#1C1C1C0D",
             },
             disabled: {
               main: "#1C1C1C33",
             },
             text: {
-              primary: "#000000",
+              main: "#1C1C1C",
               secondary: "#333333",
             },
           }
@@ -34,17 +35,18 @@ export const getTheme = (mode) =>
             },
             primary: {
               main: "#90caf9",
+              variant1: "#FFFFFF0D",
             },
             secondary: {
               main: "#FFFFFF66",
-              variant1:"#C6C7F8",
-              variant2:"#FFFFFF1A"
+              variant1: "#C6C7F8",
+              variant2: "#FFFFFF1A",
             },
             disabled: {
               main: "#FFFFFF33",
             },
             text: {
-              primary: "#ffffff",
+              main: "#FFFFFF",
               secondary: "#bbbbbb",
             },
           }),
@@ -53,7 +55,7 @@ export const getTheme = (mode) =>
     typography: {
       fontFamily: "Quicksand, sans-serif",
       h1: {
-        fontWeight: 500,
+        fontWeight: 700,
         fontSize: "14px",
         lineHeight: "20px",
       },
@@ -63,8 +65,9 @@ export const getTheme = (mode) =>
         lineHeight: "20px",
       },
       h3: {
-        fontSize: "1.75rem",
         fontWeight: 500,
+        fontSize: "12px",
+        lineHeight: "18px",
       },
       subtitle1: {
         fontSize: "1rem",

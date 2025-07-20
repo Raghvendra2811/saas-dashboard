@@ -1,7 +1,7 @@
 import { Grid, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import "./Leftbar.css";
-import { sideBarSettings } from "../data";
+import { sideBarConfig } from "../data";
 import NavItemComp from "../components/navItemComp";
 
 const Sidebar = () => {
@@ -40,7 +40,7 @@ const Sidebar = () => {
           </Typography>
         </Grid>
       </Grid>
-      {sideBarSettings.map((sidebarSection) => (
+      {sideBarConfig.map((sidebarSection) => (
         <Grid key={sidebarSection.title} mt={3.5} gap={0.5} container>
           <Grid px={1.5} py={0.5}>
             <Typography variant="h2" color="secondary">

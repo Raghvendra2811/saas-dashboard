@@ -42,10 +42,34 @@
   background-color: rgb(28, 28, 28);
 }
 
-.input-element{
+.input-element {
   border: none;
   background: transparent;
+  width: 104px;
 }
-.input-element::placeholder{
-  color: #1C1C1C33;
+
+.input-element::placeholder {
+  color: #1c1c1c33;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.activity-item {
+  position: relative;
+}
+
+.activity-item::after {
+  content: "";
+  position: absolute;
+  bottom: -20%;
+  left: 50%;
+  width: 1px;
+  height: 14px;
+  background: #1c1c1c1a;
+}
+
+.activity-item.last::after {
+  display: none;
 }

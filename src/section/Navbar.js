@@ -1,31 +1,23 @@
 import React from "react";
 import { useColorMode } from "../theme/themeContext";
-import {
-  Box,
-  Button,
-  Grid,
-  InputAdornment,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useSearchParams } from "react-router-dom";
-import { css } from "@emotion/react";
 import { navBarConfig } from "../data";
 
-const Navbar = () => {
+const Navbar = ({ handleToggleLeftBar, handleToggleRightBar }) => {
   const { mode, toggleColorMode } = useColorMode();
   const theme = useTheme();
 
   const [searchParams, setSearchParams] = useSearchParams();
-  const page = searchParams.get("page");
+  const page = searchParams.get("page") || "Default";
   const handleActions = (type) => {
     switch (type) {
       case "theme":
         toggleColorMode();
         break;
       case "right_sibebar":
-        toggleColorMode();
+        handleToggleRightBar();
         break;
 
       default:
@@ -48,14 +40,14 @@ const Navbar = () => {
         justifyContent="space-between"
       >
         <Grid container gap={0.5} alignItems="center">
-          <Grid p={0.5} container>
+          <Grid className="cursor-pointer" onClick={handleToggleLeftBar} p={0.5} container>
             <img
               src={`assets/${mode}/Sidebar.png`}
               width="20px"
               height="20px"
             />
           </Grid>
-          <Grid p={0.5} container>
+          <Grid className="cursor-pointer" p={0.5} container>
             <img src={`assets/${mode}/Star.png`} width="20px" height="20px" />
           </Grid>
           <Typography variant="h2" color="secondary">
@@ -93,15 +85,16 @@ const Navbar = () => {
               }}
               placeholder="Search"
             />
-            <Typography variant="h2" color="secondary">
+            <Typography variant="h2" color="disabled">
               ⌘ /
             </Typography>
           </Grid>
           <Grid container gap={1} alignItems="center">
             {navBarConfig.map((item, index) => (
               <Grid
+                p={0.5}
                 key={index}
-                sx={{ cursor: "pointer" }}
+                className="cursor-pointer"
                 onClick={() => handleActions(item.type)}
                 container
               >
