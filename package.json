@@ -19,12 +19,13 @@
     "recharts": "^3.1.0",
     "web-vitals": "^2.1.4"
   },
-"scripts": {
-    "start": "react-scripts start",
+  "scripts": {
+    "install": "npm install --legacy-peer-deps",
+    "vercel-build": "npm run build",
     "build": "react-scripts build",
+    "start": "react-scripts start",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "vercel-build": "./vercel-build.sh"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
