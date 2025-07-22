@@ -7,13 +7,26 @@ import NavItemComp from "../components/navItemComp";
 const Sidebar = () => {
   const theme = useTheme();
 
+  const hoverStyle = {
+    background: theme.palette.secondary.variant2,
+    borderRadius: "8px",
+  };
   return (
     <Grid
       px={2}
       py={2.5}
-      sx={{ borderRight: `1px solid ${theme.palette.disabled.main}`,height:"100vh" }}
+      sx={{
+        borderRight: `1px solid ${theme.palette.disabled.main}`,
+        height: "100vh",
+      }}
     >
-      <Grid container gap={1} p={0.5} alignItems="center">
+      <Grid
+        container
+        gap={1}
+        p={0.5}
+        alignItems="center"
+        className="cursor-pointer"
+      >
         <img
           src="assets/light/ByeWind.png"
           className="logo"
@@ -23,15 +36,36 @@ const Sidebar = () => {
       </Grid>
 
       <Grid mt={2} container gap={0.5}>
-        <Grid container px={1} py={0.5} gap={3}>
-          <Typography variant="h2" color="secondary">
-            Favorites
-          </Typography>
-          <Typography variant="h2" color="disabled">
-            Recently
-          </Typography>
+        <Grid container gap={1}>
+          <Grid
+            px={1}
+            py={0.5}
+            sx={{ ":hover": hoverStyle }}
+            className="cursor-pointer"
+          >
+            <Typography variant="h2" color="secondary">
+              Favorites
+            </Typography>
+          </Grid>
+          <Grid
+            px={1}
+            py={0.5}
+            sx={{ ":hover": hoverStyle }}
+            className="cursor-pointer"
+          >
+            <Typography variant="h2" color="disabled">
+              Recently
+            </Typography>
+          </Grid>
         </Grid>
-        <Grid px={1} py={0.5} container alignItems={"center"}>
+        <Grid
+          px={1}
+          py={0.5}
+          container
+          alignItems={"center"}
+          sx={{ ":hover": hoverStyle }}
+          className="cursor-pointer"
+        >
           <span
             style={{ backgroundColor: theme.palette.secondary.main }}
             className="nav-dot"
@@ -40,7 +74,14 @@ const Sidebar = () => {
             Overview
           </Typography>
         </Grid>
-        <Grid px={1} py={0.5} container alignItems={"center"}>
+        <Grid
+          px={1}
+          py={0.5}
+          container
+          alignItems={"center"}
+          sx={{ ":hover": hoverStyle }}
+          className="cursor-pointer"
+        >
           <span
             style={{ backgroundColor: theme.palette.secondary.main }}
             className="nav-dot"

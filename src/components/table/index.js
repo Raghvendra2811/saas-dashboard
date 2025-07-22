@@ -16,6 +16,7 @@ import { useColorMode } from "../../theme/themeContext";
 const TableComp = () => {
   const { mode } = useColorMode();
   const theme = useTheme();
+  const checkedColor = mode === "light" ? "" : "#C6C7F8";
   return (
     <Grid>
       <Table>
@@ -28,9 +29,9 @@ const TableComp = () => {
                   : "1px solid rgba(28, 28, 28, 0.2)",
             }}
           >
-            <TableCell sx={{ border: "none", p: 0 }} />
             {orderListColumns.map((currItem, index) => (
               <TableCell
+                di
                 key={currItem.title}
                 align="left"
                 sx={{
@@ -39,7 +40,18 @@ const TableComp = () => {
                   border: "none",
                 }}
               >
-                <Typography variant="h3" color="secondary">
+                <Typography
+                  variant="h3"
+                  color="secondary"
+                  display="flex"
+                  alignItems="center"
+                >
+                  {index === 0 && (
+                    <input
+                      type="checkbox"
+                      style={{ accentColor: checkedColor, marginRight: "16px" }}
+                    />
+                  )}
                   {currItem.title}
                 </Typography>
               </TableCell>
@@ -63,13 +75,16 @@ const TableComp = () => {
                 },
               }}
             >
-              <TableCell sx={{ border: "none", p: 0 }} />
-
-              {orderListColumns.map((column) => (
+              {orderListColumns.map((column, columnIndex) => (
                 <TableCell
                   sx={{ px: 1.5, py: 1, border: "none", fontSize: "12px" }}
                 >
-                  <ColumnComponent row={row} column={column} />
+                  <ColumnComponent
+                    row={row}
+                    column={column}
+                    columnIndex={columnIndex}
+                    checkedColor={checkedColor}
+                  />
                 </TableCell>
               ))}
             </TableRow>

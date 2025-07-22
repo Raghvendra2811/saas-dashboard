@@ -8,6 +8,10 @@ import { navBarConfig } from "../data";
 const Navbar = ({ handleToggleLeftBar, handleToggleRightBar }) => {
   const { mode, toggleColorMode } = useColorMode();
   const theme = useTheme();
+  const hoverStyle = {
+    background: theme.palette.secondary.variant2,
+    borderRadius: "8px",
+  };
 
   const [searchParams, setSearchParams] = useSearchParams();
   const page = searchParams.get("page") || "Default";
@@ -40,14 +44,25 @@ const Navbar = ({ handleToggleLeftBar, handleToggleRightBar }) => {
         justifyContent="space-between"
       >
         <Grid container gap={0.5} alignItems="center">
-          <Grid className="cursor-pointer" onClick={handleToggleLeftBar} p={0.5} container>
+          <Grid
+            sx={{ ":hover": hoverStyle }}
+            className="cursor-pointer"
+            onClick={handleToggleLeftBar}
+            p={0.5}
+            container
+          >
             <img
               src={`assets/${mode}/Sidebar.png`}
               width="20px"
               height="20px"
             />
           </Grid>
-          <Grid className="cursor-pointer" p={0.5} container>
+          <Grid
+            sx={{ ":hover": hoverStyle }}
+            className="cursor-pointer"
+            p={0.5}
+            container
+          >
             <img src={`assets/${mode}/Star.png`} width="20px" height="20px" />
           </Grid>
           <Typography variant="h2" color="secondary">
@@ -92,6 +107,7 @@ const Navbar = ({ handleToggleLeftBar, handleToggleRightBar }) => {
           <Grid container gap={1} alignItems="center">
             {navBarConfig.map((item, index) => (
               <Grid
+                sx={{ ":hover": hoverStyle }}
                 p={0.5}
                 key={index}
                 className="cursor-pointer"
@@ -107,15 +123,6 @@ const Navbar = ({ handleToggleLeftBar, handleToggleRightBar }) => {
             ))}
           </Grid>
         </Grid>
-        {/* <Box
-          sx={{ p: 4, bgcolor: "background.default", color: "text.primary" }}
-        >
-          <Typography variant="h4">Current Mode: {mode}</Typography>
-          <Button variant="contained" onClick={toggleColorMode}>
-            Toggle Mode
-          </Button>
-        </Box>
-        Navbar */}
       </Grid>
     </>
   );

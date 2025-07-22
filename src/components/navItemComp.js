@@ -1,7 +1,6 @@
-import { Grid, Typography } from "@mui/material";
+import { Grid, Typography, Collapse } from "@mui/material";
 import { useColorMode } from "../theme/themeContext";
 import { useState } from "react";
-import "../section/Leftbar.css";
 import { useTheme } from "@mui/material/styles";
 import { useSearchParams } from "react-router-dom";
 
@@ -9,7 +8,7 @@ const NavItemComp = ({ navItem }) => {
   const theme = useTheme();
   const [showChild, setShowChild] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
-  const page = searchParams.get("page");
+  const page = searchParams.get("page") || "Default";
 
   const { mode } = useColorMode();
   const handleShowChild = () => {
@@ -20,12 +19,16 @@ const NavItemComp = ({ navItem }) => {
     }
   };
   const hoverStyle = { background: theme.palette.secondary.variant2 };
+  
   return (
     <>
       <Grid
         onClick={handleShowChild}
-        className={`${"nav-item"}`}
-        sx={{ ":hover": hoverStyle, ...(page === navItem.value && hoverStyle) }}
+        className="nav-item cursor-pointer"
+        sx={{
+          ":hover": hoverStyle,
+          ...(page === navItem.value && hoverStyle),
+        }}
         container
         px={1}
         py={0.5}
@@ -38,6 +41,10 @@ const NavItemComp = ({ navItem }) => {
               height={"100%"}
               width={"100%"}
               alt="Arrow"
+              style={{
+                transform: showChild ? 'rotate(90deg)' : 'rotate(0deg)',
+                transition: 'transform 0.3s ease-in-out'
+              }}
             />
           )}
         </Grid>
@@ -59,11 +66,15 @@ const NavItemComp = ({ navItem }) => {
           ></span>
         )}
       </Grid>
-      {showChild &&
-        navItem?.children &&
-        navItem?.children.map((navItem) => (
-          <NavItemComp navItem={navItem} key={navItem.id} />
-        ))}
+
+      <Collapse in={showChild} timeout={300}>
+        <Grid sx={{ paddingLeft: 2 }}>
+          {navItem?.children &&
+            navItem?.children.map((childNavItem) => (
+              <NavItemComp navItem={childNavItem} key={childNavItem.id} />
+            ))}
+        </Grid>
+      </Collapse>
     </>
   );
 };

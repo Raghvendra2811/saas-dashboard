@@ -69,53 +69,5 @@ export const getTheme = (mode) =>
         fontSize: "12px",
         lineHeight: "18px",
       },
-      subtitle1: {
-        fontSize: "1rem",
-        fontWeight: 400,
-        color: mode === "light" ? "#666" : "#aaa",
-      },
-      button: {
-        textTransform: "none",
-        fontWeight: 600,
-      },
-    },
-
-    shape: {
-      borderRadius: 12, // More rounded corners
-    },
-
-    spacing: 8, // Default spacing unit (8px)
-
-    shadows:
-      mode === "light"
-        ? [
-            "none",
-            "0px 1px 3px rgba(0,0,0,0.12)",
-            "0px 3px 6px rgba(0,0,0,0.16)",
-            // ...up to 24
-          ]
-        : [
-            "none",
-            "0px 1px 3px rgba(255,255,255,0.12)",
-            "0px 3px 6px rgba(255,255,255,0.16)",
-            // ...up to 24
-          ],
-
-    components: {
-      MuiButton: {
-        styleOverrides: {
-          root: {
-            borderRadius: 8,
-            padding: "8px 16px",
-          },
-        },
-      },
-      MuiPaper: {
-        styleOverrides: {
-          root: {
-            borderRadius: 10,
-          },
-        },
-      },
     },
   });

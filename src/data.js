@@ -368,12 +368,12 @@ export const dashboardRestConfig = [
 ];
 
 export const orderListColumns = [
-  { title: "Order ID", key: "orderId",type:"text" },
-  { title: "User", key: "userName",type:"user" },
-  { title: "Project", key: "projectName",type:"text" },
-  { title: "Address", key: "address",type:"text" },
-  { title: "Date", key: "date",type:"date" },
-  { title: "Status", key: "status_text",type:"status" },
+  { title: "Order ID", key: "orderId", type: "text" },
+  { title: "User", key: "userName", type: "user" },
+  { title: "Project", key: "projectName", type: "text" },
+  { title: "Address", key: "address", type: "text" },
+  { title: "Date", key: "date", type: "date" },
+  { title: "Status", key: "status_text", type: "status" },
 ];
 
 export const orderListData = [
@@ -426,6 +426,7 @@ export const orderListData = [
     date: "Feb 2, 2023",
     status_text: "Rejected",
     status_color: "#1C1C1C66",
+    dark_status_color: "#FFFFFF66",
   },
   {
     orderId: "#CM9081",
@@ -476,5 +477,6 @@ export const orderListData = [
     date: "Feb 2, 2023",
     status_text: "Rejected",
     status_color: "#1C1C1C66",
+    dark_status_color: "#FFFFFF66",
   },
 ];

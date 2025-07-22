@@ -1,12 +1,20 @@
 import { Height } from "@mui/icons-material";
-import { Typography, Grid } from "@mui/material";
+import { Typography, Grid, useTheme } from "@mui/material";
 import React from "react";
 
 const SingleNotification = ({ item, group, index }) => {
   const isLast = index === group.data.length - 1;
+  const theme = useTheme();
+  const hoverStyle = {
+    background: theme.palette.secondary.variant2,
+    borderRadius: "8px",
+  };
   return (
-    <Grid p={0.5} container gap={1}>
+    <Grid p={0.5} container gap={1} sx={{ ":hover": hoverStyle }}>
       <Grid
+        sx={{
+          "::after": { background: theme.palette.disabled.main },
+        }}
         className={`${group.type === "connecting" ? "activity-item" : ""}${
           isLast ? "last" : ""
         }`}

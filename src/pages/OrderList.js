@@ -2,31 +2,28 @@ import { Box, Typography, Button, Grid, useTheme } from "@mui/material";
 import { useColorMode } from "../theme/themeContext";
 import "../App.css";
 import TableComp from "../components/table/index";
+import { useSearchParams } from "react-router-dom";
 
 function OrderList() {
   const { mode } = useColorMode();
   const theme = useTheme();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const page = searchParams.get("page") || "Default";
 
   const actionButtons = [
     { icon: "Add.png" },
     { icon: "FunnelSimple.png" },
     { icon: "ArrowsDownUp.png" },
   ];
-
-  const tableHeaders = [
-    { th: "Order ID" },
-    { th: "User" },
-    { th: "Project" },
-    { th: "Address" },
-    { th: "Date" },
-    { th: "Status" },
-  ];
-
+  const hoverStyle = {
+    background: theme.palette.secondary.variant2,
+    borderRadius: "8px",
+  };
   return (
     <>
       <Grid px={1} py={0.5} mb={2}>
         <Typography variant="h1" color="text">
-          eCommerce
+          {page}
         </Typography>
       </Grid>
 
@@ -38,9 +35,15 @@ function OrderList() {
         backgroundColor={theme.palette.primary.variant1}
         borderRadius={1}
       >
-        <Grid container gap={0.5} alignItems="center">
+        <Grid container gap={1} alignItems="center">
           {actionButtons.map((currItem, index) => (
-            <Grid key={index} container>
+            <Grid
+              key={index}
+              container
+              p={0.5}
+              sx={{ ":hover": hoverStyle }}
+              className="cursor-pointer"
+            >
               <img
                 src={`assets/${mode}/${currItem.icon}`}
                 height="20px"
@@ -111,37 +114,22 @@ function OrderList() {
 
         <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
           {Array.from({ length: 5 }).map((_, index) => (
-            <Button
+            <Grid
+              sx={{ ":hover": hoverStyle }}
+              p={0.5}
               key={index}
-              sx={{
-                minWidth: "28px",
-                height: "28px",
-                px: 1,
-                py: 0.5,
-                borderRadius: 1,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                backgroundColor:
-                  index === 0
-                    ? mode === "dark"
-                      ? "rgba(255, 255, 255, 0.05)"
-                      : "rgba(28, 28, 28, 0.05)"
-                    : "transparent",
-                color: "inherit",
-                fontSize: "14px",
-                "&:hover": {
-                  backgroundColor:
-                    index === 0
-                      ? mode === "dark"
-                        ? "rgba(255, 255, 255, 0.08)"
-                        : "rgba(28, 28, 28, 0.08)"
-                      : "rgba(128, 128, 128, 0.1)",
-                },
-              }}
+              className="cursor-pointer"
+              container
             >
-              {index + 1}
-            </Button>
+              <Typography
+                variant="h2"
+                width="20px"
+                textAlign="center"
+                color="text"
+              >
+                {index + 1}
+              </Typography>
+            </Grid>
           ))}
         </Box>
 

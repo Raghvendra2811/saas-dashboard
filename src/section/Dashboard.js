@@ -21,7 +21,14 @@ const Dashboard = () => {
   };
 
   return (
-    <Grid p={3.5} sx={{ overflowY: "auto", maxHeight: "calc(100vh - 70px)" }}>
+    <Grid
+      p={3.5}
+      sx={{
+        overflowY: "auto",
+        maxHeight: "calc(100vh - 70px)",
+        height: "calc(100vh - 70px)",
+      }}
+    >
       {renderPage()}
     </Grid>
   );

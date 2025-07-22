@@ -13,7 +13,7 @@ const DefaultDashboard = () => {
     <>
       <Grid px={1} py={0.5} mb={2}>
         <Typography variant="h1" color="text">
-          eCommerce
+          {page}
         </Typography>
       </Grid>
       <Grid container spacing={3.5}>
