@@ -87,8 +87,8 @@ const ColumnComponent = ({ row, column, columnIndex, checkedColor }) => {
         <Grid container gap={1} alignItems="center">
           <img
             src={`assets/avatars/${row.userIcon}`}
-            width="16px"
-            height="16px"
+            width="24px"
+            height="24px"
           />
           <Typography variant="h3" color="text">
             {value}

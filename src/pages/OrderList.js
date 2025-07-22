@@ -34,6 +34,7 @@ function OrderList() {
         justifyContent="space-between"
         backgroundColor={theme.palette.primary.variant1}
         borderRadius={1}
+        mb={1.5}
       >
         <Grid container gap={1} alignItems="center">
           {actionButtons.map((currItem, index) => (

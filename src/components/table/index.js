@@ -16,22 +16,16 @@ import { useColorMode } from "../../theme/themeContext";
 const TableComp = () => {
   const { mode } = useColorMode();
   const theme = useTheme();
-  const checkedColor = mode === "light" ? "" : "#C6C7F8";
+  const checkedColor = mode === "light" ? "#1C1C1C" : "#C6C7F8";
   return (
     <Grid>
       <Table>
         <TableHead>
           <TableRow
-            sx={{
-              borderBottom:
-                mode === "dark"
-                  ? "1px solid rgba(255, 255, 255, 0.2)"
-                  : "1px solid rgba(28, 28, 28, 0.2)",
-            }}
+            sx={{ borderBottom: `1px solid ${theme.palette.disabled.main}` }}
           >
             {orderListColumns.map((currItem, index) => (
               <TableCell
-                di
                 key={currItem.title}
                 align="left"
                 sx={{
