@@ -41,6 +41,7 @@ const DefaultDashboard = () => {
             sx={{
               background: theme.palette.primary.variant1,
               height: widget.height,
+              overflowY:"auto"
             }}
             size={{
               xs: widget.resWidth,
