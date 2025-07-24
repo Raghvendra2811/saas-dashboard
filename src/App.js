@@ -27,7 +27,7 @@ function App() {
       {showLeftBar &&
         (isMobile ? (
           <Drawer open={showLeftBar} onClose={handleToggleLeftBar}>
-            <Grid sx={{ maxWidth: "212px" }}>
+            <Grid sx={{ maxWidth: "90%", width: "212px" }}>
               <Leftbar />
             </Grid>
           </Drawer>
@@ -59,7 +59,7 @@ function App() {
             open={showRightBar}
             onClose={handleToggleRightBar}
           >
-            <Grid sx={{ maxWidth: "280px" }}>
+            <Grid sx={{ maxWidth: "90%", width: "280px" }}>
               <Rightbar />
             </Grid>
           </Drawer>
