@@ -8,6 +8,7 @@ import {
   Grid,
   useTheme,
   Checkbox,
+  Box,
 } from "@mui/material";
 import { orderListColumns, orderListData } from "../../data";
 import ColumnComponent from "./columnComp";
@@ -17,9 +18,15 @@ const TableComp = () => {
   const { mode } = useColorMode();
   const theme = useTheme();
   const checkedColor = mode === "light" ? "#1C1C1C" : "#C6C7F8";
+  
   return (
-    <Grid>
-      <Table>
+    <Box 
+      sx={{ 
+        width: "100%",
+        overflow: "auto",
+      }}
+    >
+      <Table sx={{ minWidth: 800 }}> {/* Minimum width to ensure horizontal scroll */}
         <TableHead>
           <TableRow
             sx={{ borderBottom: `1px solid ${theme.palette.disabled.main}` }}
@@ -32,6 +39,8 @@ const TableComp = () => {
                   px: 1.5,
                   py: 1,
                   border: "none",
+                  whiteSpace: "nowrap", // Prevent text wrapping
+                  minWidth: "fit-content", // Ensure minimum width for content
                 }}
               >
                 <Typography
@@ -39,6 +48,7 @@ const TableComp = () => {
                   color="secondary"
                   display="flex"
                   alignItems="center"
+                  sx={{ whiteSpace: "nowrap" }} // Prevent text wrapping in typography
                 >
                   {index === 0 && (
                     <input
@@ -71,7 +81,16 @@ const TableComp = () => {
             >
               {orderListColumns.map((column, columnIndex) => (
                 <TableCell
-                  sx={{ px: 1.5, py: 1, border: "none", fontSize: "12px" }}
+                  key={columnIndex}
+                  sx={{ 
+                    px: 1.5, 
+                    py: 1, 
+                    border: "none", 
+                    whiteSpace: "nowrap", 
+                    overflow: "hidden", 
+                    textOverflow: "ellipsis", 
+                    minWidth: "fit-content", 
+                  }}
                 >
                   <ColumnComponent
                     row={row}
@@ -85,7 +104,7 @@ const TableComp = () => {
           ))}
         </TableBody>
       </Table>
-    </Grid>
+    </Box>
   );
 };
 

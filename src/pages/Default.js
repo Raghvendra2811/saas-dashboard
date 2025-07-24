@@ -17,7 +17,7 @@ const DefaultDashboard = () => {
         </Typography>
       </Grid>
       <Grid container spacing={3.5}>
-        <Grid container gap={3.5} size={6}>
+        <Grid container gap={3.5} size={{ xs: 12, lg: 6 }}>
           {dashboardStatsConfig.map((statsData) => (
             <Grid
               borderRadius={2}
@@ -28,7 +28,7 @@ const DefaultDashboard = () => {
                   : theme.palette.primary.variant1,
                 height: "112px",
               }}
-              size={6}
+              size={{ xs: 12, sm: 6 }}
             >
               <Stats statsData={statsData} />
             </Grid>
@@ -42,7 +42,11 @@ const DefaultDashboard = () => {
               background: theme.palette.primary.variant1,
               height: widget.height,
             }}
-            size={widget.width}
+            size={{
+              xs: widget.resWidth,
+              md: widget.resWidth,
+              lg: widget.width,
+            }}
           >
             <Widget widget={widget} />
           </Grid>

@@ -1,6 +1,6 @@
 import React from "react";
 import { useColorMode } from "../theme/themeContext";
-import { Grid, Typography } from "@mui/material";
+import { Grid, Typography, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useSearchParams } from "react-router-dom";
 import { navBarConfig } from "../data";
@@ -8,6 +8,8 @@ import { navBarConfig } from "../data";
 const Navbar = ({ handleToggleLeftBar, handleToggleRightBar }) => {
   const { mode, toggleColorMode } = useColorMode();
   const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm")); // Below 600px
+  const isTablet = useMediaQuery(theme.breakpoints.down("md")); // Below 900px
   const hoverStyle = {
     background: theme.palette.secondary.variant2,
     borderRadius: "8px",
@@ -65,45 +67,52 @@ const Navbar = ({ handleToggleLeftBar, handleToggleRightBar }) => {
           >
             <img src={`assets/${mode}/Star.png`} width="20px" height="20px" />
           </Grid>
-          <Typography variant="h2" color="secondary">
-            Dashboards
-          </Typography>
-          <Typography variant="h2" color="secondary">
-            /
-          </Typography>
-          <Typography variant="h2">{page}</Typography>
+
+          {!isTablet && (
+            <>
+              <Typography variant="h2" color="secondary">
+                Dashboards
+              </Typography>
+              <Typography variant="h2" color="secondary">
+                /
+              </Typography>
+              <Typography variant="h2">{page}</Typography>
+            </>
+          )}
         </Grid>
         <Grid container gap={2.5} alignItems="center">
-          <Grid
-            sx={{
-              background: theme.palette.secondary.variant2,
-              borderRadius: "8px",
-            }}
-            px={1}
-            py={0.5}
-            container
-            alignItems="center"
-          >
-            <Grid container>
-              <img
-                src={`assets/${mode}/Search.png`}
-                width="16px"
-                height="16px"
-              />
-            </Grid>
-            <input
-              className="input-element"
-              style={{
-                border: "none",
-                outline: "none",
-                background: "transparent",
+          {!isMobile && (
+            <Grid
+              sx={{
+                background: theme.palette.secondary.variant2,
+                borderRadius: "8px",
               }}
-              placeholder="Search"
-            />
-            <Typography variant="h2" color="disabled">
-              ⌘ /
-            </Typography>
-          </Grid>
+              px={1}
+              py={0.5}
+              container
+              alignItems="center"
+            >
+              <Grid container>
+                <img
+                  src={`assets/${mode}/Search.png`}
+                  width="16px"
+                  height="16px"
+                />
+              </Grid>
+              <input
+                className="input-element"
+                style={{
+                  border: "none",
+                  outline: "none",
+                  background: "transparent",
+                }}
+                placeholder="Search"
+              />
+              <Typography variant="h2" color="disabled">
+                ⌘ /
+              </Typography>
+            </Grid>
+          )}
           <Grid container gap={1} alignItems="center">
             {navBarConfig.map((item, index) => (
               <Grid

@@ -58,37 +58,39 @@ const Sidebar = () => {
             </Typography>
           </Grid>
         </Grid>
-        <Grid
-          px={1}
-          py={0.5}
-          container
-          alignItems={"center"}
-          sx={{ ":hover": hoverStyle }}
-          className="cursor-pointer"
-        >
-          <span
-            style={{ backgroundColor: theme.palette.secondary.main }}
-            className="nav-dot"
-          ></span>
-          <Typography variant="h2" alignItems={"center"}>
-            Overview
-          </Typography>
-        </Grid>
-        <Grid
-          px={1}
-          py={0.5}
-          container
-          alignItems={"center"}
-          sx={{ ":hover": hoverStyle }}
-          className="cursor-pointer"
-        >
-          <span
-            style={{ backgroundColor: theme.palette.secondary.main }}
-            className="nav-dot"
-          ></span>
-          <Typography variant="h2" alignItems={"center"}>
-            Projects
-          </Typography>
+        <Grid>
+          <Grid
+            px={1}
+            py={0.5}
+            container
+            alignItems={"center"}
+            sx={{ ":hover": hoverStyle }}
+            className="cursor-pointer"
+          >
+            <span
+              style={{ backgroundColor: theme.palette.secondary.main }}
+              className="nav-dot"
+            ></span>
+            <Typography variant="h2" alignItems={"center"}>
+              Overview
+            </Typography>
+          </Grid>
+          <Grid
+            px={1}
+            py={0.5}
+            container
+            alignItems={"center"}
+            sx={{ ":hover": hoverStyle }}
+            className="cursor-pointer"
+          >
+            <span
+              style={{ backgroundColor: theme.palette.secondary.main }}
+              className="nav-dot"
+            ></span>
+            <Typography variant="h2" alignItems={"center"}>
+              Projects
+            </Typography>
+          </Grid>
         </Grid>
       </Grid>
       {sideBarConfig.map((sidebarSection) => (

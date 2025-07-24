@@ -54,48 +54,58 @@ const TableWidget = ({widget}) => {
 
   return (
     <>
-      <Typography variant="h1" color="text">
+      <Typography variant="h1" sx={{wordBreak:"keep-all"}} color="text">
         {widget.title}
       </Typography>
-      <Table sx={{ width: "100%" }}>
-        <TableHead>
-          <TableRow sx={{ borderBottom: theme.palette.disabled.main }}>
-            {tableHeaders.map((currItem, index) => (
-              <TableCell
-                sx={{
-                  py: 1.5,
-                  pr: 1.5,
-                  pl: 0,
-                }}
-              >
-                <Typography variant="h3" color="secondary">
-                  {currItem.th}
-                </Typography>
-              </TableCell>
-            ))}
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {productsData.map((currItem, index) => (
-            <TableRow key={index}>
-              {tableHeaders.map((cell) => (
+      <Box 
+        sx={{ 
+          width: "100%",
+          overflow: "auto",
+          maxHeight: "calc(100% - 20px)",
+        }}
+      >
+        <Table sx={{ width: "100%" }}>
+          <TableHead>
+            <TableRow sx={{ borderBottom: theme.palette.disabled.main }}>
+              {tableHeaders.map((currItem, index) => (
                 <TableCell
+                  key={index}
                   sx={{
                     py: 1.5,
                     pr: 1.5,
                     pl: 0,
-                    borderBottom: "none",
                   }}
                 >
-                  <Typography variant="h3" color="text">
-                    {currItem[cell.key]}
+                  <Typography variant="h3" color="secondary">
+                    {currItem.th}
                   </Typography>
                 </TableCell>
               ))}
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+          </TableHead>
+          <TableBody>
+            {productsData.map((currItem, index) => (
+              <TableRow key={index}>
+                {tableHeaders.map((cell, cellIndex) => (
+                  <TableCell
+                    key={cellIndex}
+                    sx={{
+                      py: 1.5,
+                      pr: 1.5,
+                      pl: 0,
+                      borderBottom: "none",
+                    }}
+                  >
+                    <Typography variant="h3" color="text">
+                      {currItem[cell.key]}
+                    </Typography>
+                  </TableCell>
+                ))}
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </Box>
     </>
   );
 };

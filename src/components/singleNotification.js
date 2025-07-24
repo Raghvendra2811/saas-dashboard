@@ -1,4 +1,3 @@
-import { Height } from "@mui/icons-material";
 import { Typography, Grid, useTheme } from "@mui/material";
 import React from "react";
 
@@ -21,7 +20,7 @@ const SingleNotification = ({ item, group, index }) => {
       >
         <img src={`assets/avatars/${item.icon}`} width="24px" height="24px" />
       </Grid>
-      <Grid>
+      <Grid size="grow">
         <Typography variant="h2" color="text">
           {item.text}
         </Typography>
